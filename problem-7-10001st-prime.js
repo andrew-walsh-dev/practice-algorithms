@@ -3,11 +3,12 @@
 //main function to find the nth prime
 function nthPrime(n) {
 
-  //start at 2, which is the first prime
-  let curr = 2;
+  //start at 3, which is the first odd prime
+  let curr = 3;
 
   //keep track of which prime you are at
-  let primeCount = 1;
+  //starting at 3 with is the second odd, then we can iterate by two
+  let primeCount = 2;
 
   //loop until you find the nth prime
   while (primeCount < n) {
