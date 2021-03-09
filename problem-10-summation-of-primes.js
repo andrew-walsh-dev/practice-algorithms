@@ -1,3 +1,6 @@
+//Find the sum of all the primes below n.
+
+
 function primeSummation(n) {
   let sum = 2;
   for (let i = 3; i < n; i += 2) {
