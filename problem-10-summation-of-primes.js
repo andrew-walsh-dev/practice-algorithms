@@ -1,16 +1,21 @@
 //Find the sum of all the primes below n.
 
-
+//function to find the sum of primes below n
 function primeSummation(n) {
+  //2 is the first prime
   let sum = 2;
+  //loop starting at 3 and only check odds
   for (let i = 3; i < n; i += 2) {
+    //if the num is prime, add it onto the sum
     if (isPrime(i)) {
       sum += i;
     }
   }
+  //return the sum
   return sum;
 }
 
+//function to check if a num is prime
 function isPrime(number) {
   //if less than or equal to one, not prime
   if (number <= 1) {
