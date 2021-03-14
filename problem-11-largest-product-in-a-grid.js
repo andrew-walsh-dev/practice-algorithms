@@ -1,21 +1,43 @@
+/*
+What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or
+diagonally) in a given arr grid?
+*/
+
+
 function largestGridProduct(arr) {
+  //find the length of each row in the grid
   var rowLength = arr[0].length;
+
+  //store the greatest product we find
   let greatestProductInArr = 0;
+
+  //flatten out the subarrays to make it easier to traverse
   let wholeArr = arr.flat();
+
+  //loop through every index in the array
   for (let i = 0; i < wholeArr.length; i++) {
+    //check if the pproducts from that index are greatest,
+    //update the greatest if so
     if (greatestProduct(wholeArr, i, rowLength) > greatestProductInArr) {
       greatestProductInArr = greatestProduct(wholeArr, i, rowLength);
     }
   }
   console.log(greatestProductInArr);
+  //return the greatest product
   return greatestProductInArr;
 }
 
+//function to find the greatest product that starts at an index
 function greatestProduct(arr, index, rowLength) {
+
+  //check 4 indexs up, down, diagonally up right, and diagonally down right
+  //this will cover every combo in the grid
   var downwardProduct = 0;
   var rightProduct = 0;
   var uprightProduct = 0;
   var downrightProduct = 0;
+
+  //before calculating in each direction, check that those indexes actually exist
 
   if (arr[index + (3 * rowLength)] !== undefined) {
     downwardProduct = arr[index] * arr[index + rowLength] * arr[index + (2 * rowLength)] * arr[index + (3 * rowLength)];
@@ -29,6 +51,7 @@ function greatestProduct(arr, index, rowLength) {
   if (arr[index + (3 * rowLength) + 3]) {
     downrightProduct = arr[index] * arr[index + rowLength + 1] * arr[index + (2 * rowLength) + 2] * arr[index + (3 * rowLength) + 3];
   }
+  //return whichever direction's product was greatest
   return Math.max(downwardProduct, rightProduct, uprightProduct, downrightProduct);
 }
 
