@@ -10,6 +10,19 @@ class Node:
         self.children.append(Node(name))
         return self
 
+    ###The method I am writing
     def depthFirstSearch(self, array):
-        # Write your code here.
-        pass
+        
+        #each node appends its name to the list
+        array.append(self.name)
+        
+        #if it has no children, return
+        if self.children == []:
+            return
+        
+        #otherwise call the search on each child in order, which 
+        #will cause a depth first search since it will traverse left to 
+        #right in the tree
+        for child in children:
+            child.depthFirstSearch(array)
+        return array
